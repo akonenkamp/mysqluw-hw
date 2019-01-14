@@ -64,6 +64,15 @@ function bamazonRun() {
                 console.log("Success! Your total is $" + total.toFixed(2) + ". Your item(s) will be shipped to you in 3-5 business days.");
             });
 
+            connection.query("SELECT * FROM Departments", function (err, dres) {
+                if (err) throw err;
+                var index;
+                for (var i = 0; i < deptRes.length; i++) {
+                    if (dres[i].department_name === res[buyWhat].department_name) {
+                        index = i;
+                    }
+                }
+            });
 
 
         }
