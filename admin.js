@@ -27,5 +27,28 @@ function loadMgrMenu() {
     });
 }
 
+function loadMgrOptions(products) {
+    inquirer
+    .prompt ({
+        type: "list",
+        name: "choice",
+        choices: ["view products for sale", "view Low Inventory", "Add to inventory", "addd new products", "quit"],
+        message: "what would you like to do"
+    })
+    .then(function(value){
+        //or choice?
+        switch(value.choices) {
+        case "view products for sale" :
+        console.table(products)
+
+        default:
+        console.log("Goodbye!");
+        process.exit(0);
+        break;
+
+        }
+    });
+}
+
 
 
